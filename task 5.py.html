@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>task 5.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+task 5.py</font>
+</center></td></tr></table>
+<pre><span class="s0">def </span><span class="s1">add_item</span><span class="s2">(</span><span class="s1">inventory</span><span class="s2">, </span><span class="s1">item</span><span class="s2">, </span><span class="s1">quantity</span><span class="s2">):</span>
+    <span class="s3">&quot;&quot;&quot;Add an item to the inventory.&quot;&quot;&quot;</span>
+    <span class="s0">if </span><span class="s1">item </span><span class="s0">in </span><span class="s1">inventory</span><span class="s2">:</span>
+        <span class="s1">inventory</span><span class="s2">[</span><span class="s1">item</span><span class="s2">] += </span><span class="s1">quantity</span>
+    <span class="s0">else</span><span class="s2">:</span>
+        <span class="s1">inventory</span><span class="s2">[</span><span class="s1">item</span><span class="s2">] = </span><span class="s1">quantity</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;Added </span><span class="s0">{</span><span class="s1">quantity</span><span class="s0">} </span><span class="s4">of </span><span class="s0">{</span><span class="s1">item</span><span class="s0">} </span><span class="s4">to the inventory.&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">sell_item</span><span class="s2">(</span><span class="s1">inventory</span><span class="s2">, </span><span class="s1">item</span><span class="s2">, </span><span class="s1">quantity</span><span class="s2">):</span>
+    <span class="s3">&quot;&quot;&quot;Sell an item from the inventory.&quot;&quot;&quot;</span>
+    <span class="s0">if </span><span class="s1">item </span><span class="s0">in </span><span class="s1">inventory</span><span class="s2">:</span>
+        <span class="s0">if </span><span class="s1">inventory</span><span class="s2">[</span><span class="s1">item</span><span class="s2">] &gt;= </span><span class="s1">quantity</span><span class="s2">:</span>
+            <span class="s1">inventory</span><span class="s2">[</span><span class="s1">item</span><span class="s2">] -= </span><span class="s1">quantity</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;Sold </span><span class="s0">{</span><span class="s1">quantity</span><span class="s0">} </span><span class="s4">of </span><span class="s0">{</span><span class="s1">item</span><span class="s0">}</span><span class="s4">.&quot;</span><span class="s2">)</span>
+            <span class="s0">if </span><span class="s1">inventory</span><span class="s2">[</span><span class="s1">item</span><span class="s2">] == </span><span class="s5">0</span><span class="s2">:</span>
+                <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;</span><span class="s0">{</span><span class="s1">item</span><span class="s0">} </span><span class="s4">is now out of stock.&quot;</span><span class="s2">)</span>
+        <span class="s0">else</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;Error: Not enough stock of </span><span class="s0">{</span><span class="s1">item</span><span class="s0">}</span><span class="s4">. Only </span><span class="s0">{</span><span class="s1">inventory</span><span class="s2">[</span><span class="s1">item</span><span class="s2">]</span><span class="s0">} </span><span class="s4">available.&quot;</span><span class="s2">)</span>
+    <span class="s0">else</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;Error: </span><span class="s0">{</span><span class="s1">item</span><span class="s0">} </span><span class="s4">is not in the inventory.&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">display_inventory</span><span class="s2">(</span><span class="s1">inventory</span><span class="s2">):</span>
+    <span class="s3">&quot;&quot;&quot;Display the current inventory.&quot;&quot;&quot;</span>
+    <span class="s0">if </span><span class="s1">inventory</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Current Inventory:&quot;</span><span class="s2">)</span>
+        <span class="s0">for </span><span class="s1">item</span><span class="s2">, </span><span class="s1">quantity </span><span class="s0">in </span><span class="s1">inventory</span><span class="s2">.</span><span class="s1">items</span><span class="s2">():</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;  </span><span class="s0">{</span><span class="s1">item</span><span class="s0">}</span><span class="s4">: </span><span class="s0">{</span><span class="s1">quantity</span><span class="s0">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+    <span class="s0">else</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;The inventory is empty.&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s3">&quot;&quot;&quot;Main function to manage the inventory.&quot;&quot;&quot;</span>
+    <span class="s1">inventory </span><span class="s2">= {}</span>
+    <span class="s0">while True</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Inventory Management System&quot;</span><span class="s2">)</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;1. Add Item&quot;</span><span class="s2">)</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;2. Sell Item&quot;</span><span class="s2">)</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;3. Display Inventory&quot;</span><span class="s2">)</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;4. Exit&quot;</span><span class="s2">)</span>
+        <span class="s1">choice </span><span class="s2">= </span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Enter your choice (1-4): &quot;</span><span class="s2">)</span>
+
+        <span class="s0">if </span><span class="s1">choice </span><span class="s2">== </span><span class="s4">&quot;1&quot;</span><span class="s2">:</span>
+            <span class="s1">item </span><span class="s2">= </span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Enter the item name: &quot;</span><span class="s2">).</span><span class="s1">strip</span><span class="s2">().</span><span class="s1">lower</span><span class="s2">()</span>
+            <span class="s0">try</span><span class="s2">:</span>
+                <span class="s1">quantity </span><span class="s2">= </span><span class="s1">int</span><span class="s2">(</span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Enter the quantity to add: &quot;</span><span class="s2">))</span>
+                <span class="s1">add_item</span><span class="s2">(</span><span class="s1">inventory</span><span class="s2">, </span><span class="s1">item</span><span class="s2">, </span><span class="s1">quantity</span><span class="s2">)</span>
+            <span class="s0">except </span><span class="s1">ValueError</span><span class="s2">:</span>
+                <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Error: Quantity must be an integer.&quot;</span><span class="s2">)</span>
+        <span class="s0">elif </span><span class="s1">choice </span><span class="s2">== </span><span class="s4">&quot;2&quot;</span><span class="s2">:</span>
+            <span class="s1">item </span><span class="s2">= </span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Enter the item name: &quot;</span><span class="s2">).</span><span class="s1">strip</span><span class="s2">().</span><span class="s1">lower</span><span class="s2">()</span>
+            <span class="s0">try</span><span class="s2">:</span>
+                <span class="s1">quantity </span><span class="s2">= </span><span class="s1">int</span><span class="s2">(</span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Enter the quantity to sell: &quot;</span><span class="s2">))</span>
+                <span class="s1">sell_item</span><span class="s2">(</span><span class="s1">inventory</span><span class="s2">, </span><span class="s1">item</span><span class="s2">, </span><span class="s1">quantity</span><span class="s2">)</span>
+            <span class="s0">except </span><span class="s1">ValueError</span><span class="s2">:</span>
+                <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Error: Quantity must be an integer.&quot;</span><span class="s2">)</span>
+        <span class="s0">elif </span><span class="s1">choice </span><span class="s2">== </span><span class="s4">&quot;3&quot;</span><span class="s2">:</span>
+            <span class="s1">display_inventory</span><span class="s2">(</span><span class="s1">inventory</span><span class="s2">)</span>
+        <span class="s0">elif </span><span class="s1">choice </span><span class="s2">== </span><span class="s4">&quot;4&quot;</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Exiting the Inventory Management System.&quot;</span><span class="s2">)</span>
+            <span class="s0">break</span>
+        <span class="s0">else</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Error: Invalid choice. Please select a valid option.&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s4">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+</pre>
+</body>
+</html>
